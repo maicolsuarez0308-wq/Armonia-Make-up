@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Armonía Make-up</title>
+    <meta name="description" content="Armonía Make-up — Lo esencial eres tú. Catálogo de maquillaje: labial, base, rubor, delineadores y más, con pedidos por WhatsApp.">
+    <meta property="og:title" content="Armonía Make-up">
+    <meta property="og:description" content="Lo esencial eres tú. Explora nuestro catálogo y haz tu pedido por WhatsApp.">
+    <meta property="og:image" content="IMAGENES/logo.png">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#b56663">
+    <link rel="icon" type="image/png" href="IMAGENES/icono.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ==========================================================
+           1. VARIABLES Y SISTEMA DE DISEÑO
+           ========================================================== */
+        :root {
+            --color-rosa: #cf8683;
+            --color-rosa-oscuro: #b56663;
+            --color-rosa-suave: #f7e6e5;
+            --color-verde: #1e9185;
+            --color-fondo: #fbf7f7;
+            --color-tarjeta-bg: #f4ecec;
+            --color-oliva: #dad9a8;
+            --texto-oscuro: #232323;
+            --texto-muted: #787474;
+            --blanco: #ffffff;
+            --sombra-suave: 0 8px 30px rgba(181, 102, 99, 0.08);
+            --sombra-tarjeta: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            --sombra-hover: 0 18px 35px -5px rgba(181, 102, 99, 0.18);
+            --radio-lg: 20px;
+            --radio-md: 14px;
+            --radio-sm: 8px;
+            --transicion: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Gilroy', 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--color-fondo);
+            color: var(--texto-oscuro);
+            margin: 0;
+            padding: 0;
+            padding-bottom: 60px;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 {
+            font-family: 'CoFo Raffine', 'Fraunces', Georgia, serif;
+            font-weight: normal;
+            letter-spacing: -0.01em;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--color-fondo); }
+        ::-webkit-scrollbar-thumb { background: var(--color-rosa-suave); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--color-rosa); }
+
+        /* ==========================================================
+           2. BARRA SUPERIOR (HEADER)
+           ========================================================== */
+        .barra-superior {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(207, 134, 131, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-marca {
+            height: 42px;
+            width: auto;
+            object-fit: contain;
+            transition: var(--transicion);
+        }
+
+        .logo-link:hover .logo-marca {
+            transform: scale(1.03);
+        }
+
+        .logo-marca:active {
+            transform: scale(0.96);
+        }
+
+        .botones-contacto { display: flex; gap: 10px; }
+
+        .btn-contacto {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transicion);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .btn-contacto svg { width: 19px; height: 19px; }
+
+        .btn-contacto.ig {
+            background: linear-gradient(135deg, var(--color-rosa), var(--color-rosa-oscuro));
+        }
+        .btn-contacto.wsp { 
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+
+        .btn-contacto:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+        }
+        .btn-contacto:active { transform: scale(0.92); }
+
+        /* ==========================================================
+           3. VISTA INICIO — HERO & CATEGORÍAS
+           ========================================================== */
+        .contenido { 
+            max-width: 960px; 
+            margin: 0 auto; 
+            padding: 0 20px; 
+        }
+
+        .hero { 
+            text-align: center; 
+            padding: 40px 15px 15px; 
+            position: relative;
+            animation: aparecer-suave 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 220px;
+            height: 220px;
+            background-image: url('IMAGENES/icono.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.06;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero h1, .hero p { position: relative; z-index: 1; }
+
+        @keyframes aparecer-suave {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero h1 { 
+            font-size: 2.5em; 
+            color: var(--color-rosa-oscuro); 
+            margin: 0 0 4px;
+            line-height: 1.1;
+        }
+        
+        .hero p.eslogan {
+            margin: 0 0 12px;
+            font-family: 'CoFo Raffine', 'Fraunces', Georgia, serif;
+            font-style: italic;
+            font-size: 1.15em;
+            color: var(--color-verde);
+            opacity: 0.9;
+        }
+        
+        .hero p.subtitulo {
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            font-size: 0.72em;
+            font-weight: 600;
+            color: var(--texto-muted);
+        }
+
+        .grid-categorias {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin: 30px auto 20px;
+            animation: aparecer-suave 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s backwards;
+        }
+
+        .tile-categoria {
+            position: relative;
+            aspect-ratio: 1 / 1.08;
+            border-radius: var(--radio-lg);
+            overflow: hidden;
+            cursor: pointer;
+            background-color: var(--color-tarjeta-bg);
+            box-shadow: var(--sombra-tarjeta);
+            transition: var(--transicion);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .tile-categoria:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--sombra-hover);
+        }
+
+        .tile-categoria:active {
+            transform: scale(0.98);
+        }
+
+        .tile-fondos { position: absolute; inset: 0; }
+        
+        .tile-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transform: scale(1);
+            transition: opacity 1.1s ease-in-out, transform 0.8s ease;
+        }
+        
+        .tile-categoria:hover .tile-img.activa {
+            transform: scale(1.06);
+        }
+
+        .tile-img.activa { opacity: 1; }
+
+        .tile-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(45, 20, 22, 0.78) 100%);
+        }
+
+        .tile-nombre {
+            position: absolute;
+            left: 16px;
+            right: 16px;
+            bottom: 16px;
+            color: var(--blanco);
+            font-family: 'CoFo Raffine', 'Fraunces', Georgia, serif;
+            font-size: 1.25em;
+            line-height: 1.2;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6px;
+        }
+
+        .tile-nombre .flecha {
+            opacity: 0;
+            transform: translateX(-4px);
+            transition: var(--transicion);
+            font-size: 0.85em;
+        }
+
+        .tile-categoria:hover .tile-nombre .flecha {
+            opacity: 0.9;
+            transform: translateX(0);
+        }
+
+        .tile-contador {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            display: flex;
+            gap: 4px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 4px 8px;
+            border-radius: 12px;
+            backdrop-filter: blur(4px);
+        }
+        
+        .tile-punto {
+            width: 5px; 
+            height: 5px; 
+            border-radius: 50%;
+            background: rgba(255,255,255,0.45);
+            transition: var(--transicion);
+        }
+        
+        .tile-punto.activo { 
+            background: var(--blanco); 
+            width: 14px; 
+            border-radius: 4px; 
+        }
+
+        .tile-vacia {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            gap: 6px;
+            font-size: 0.8em;
+            font-weight: 600;
+            color: var(--texto-muted);
+            text-align: center;
+            padding: 15px;
+        }
+
+        .tile-vacia .icono-vacio { font-size: 1.6em; opacity: 0.55; }
+        .tile-vacia .etiqueta-pronto {
+            font-size: 0.82em;
+            font-weight: 500;
+            opacity: 0.65;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Accesibilidad: foco visible al navegar con teclado */
+        .btn-contacto:focus-visible,
+        .btn-volver:focus-visible,
+        .btn-agregar:focus-visible,
+        .btn-whatsapp:focus-visible,
+        .tile-categoria:focus-visible,
+        .circulo-tono:focus-visible,
+        .logo-link:focus-visible {
+            outline: 2px solid var(--color-verde);
+            outline-offset: 3px;
+        }
+
+        /* ==========================================================
+           4. VISTA CATEGORÍA & ENCABEZADO DE SECCIÓN
+           ========================================================== */
+        .barra-categoria {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 28px 0 10px;
+        }
+        
+        .btn-volver {
+            background: var(--blanco);
+            border: 1px solid rgba(207, 134, 131, 0.25);
+            border-radius: 30px;
+            padding: 8px 18px;
+            font-size: 0.88em;
+            font-weight: 500;
+            cursor: pointer;
+            color: var(--texto-oscuro);
+            transition: var(--transicion);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+        
+        .btn-volver:hover {
+            background: var(--color-rosa-suave);
+            color: var(--color-rosa-oscuro);
+        }
+
+        #titulo-categoria { 
+            margin: 0; 
+            color: var(--color-rosa-oscuro); 
+            font-size: 1.8em; 
+        }
+
+        .mensaje-vacio {
+            text-align: center;
+            padding: 50px 20px;
+            color: var(--texto-muted);
+            font-size: 0.95em;
+        }
+
+        /* ==========================================================
+           5. GRILLA DE PRODUCTOS
+           ========================================================== */
+        .productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 18px;
+            margin: 15px auto 40px;
+        }
+
+        .tarjeta {
+            background: var(--blanco);
+            border-radius: var(--radio-lg);
+            padding: 12px;
+            text-align: center;
+            box-shadow: var(--sombra-tarjeta);
+            border: 1px solid rgba(207, 134, 131, 0.12);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: var(--transicion);
+        }
+
+        .tarjeta-click-area {
+            cursor: pointer;
+        }
+
+        .tarjeta-img-wrapper {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: var(--radio-md);
+            overflow: hidden;
+            background-color: var(--color-tarjeta-bg);
+            margin-bottom: 10px;
+        }
+
+        .tarjeta img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .tarjeta:hover .tarjeta-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .tarjeta h3 { 
+            margin: 4px 0 2px; 
+            font-size: 1.05em;
+            color: var(--texto-oscuro);
+            line-height: 1.25;
+        }
+        
+        .detalle-prod {
+            font-family: 'Gilroy', 'Manrope', sans-serif;
+            font-size: 0.76em;
+            font-weight: 400;
+            color: var(--texto-muted);
+            margin: 0 0 8px;
+            line-height: 1.3;
+        }
+        
+        .precio { 
+            font-weight: 700; 
+            color: var(--color-verde); 
+            font-size: 1.1em; 
+            margin: 4px 0 10px; 
+        }
+
+        @media (hover: hover) {
+            .tarjeta:hover { 
+                transform: translateY(-4px); 
+                box-shadow: var(--sombra-hover); 
+            }
+        }
+        
+        /* -------- Selector de Tonos -------- */
+        .hint-tonos {
+            font-size: 0.72em;
+            font-weight: 600;
+            color: var(--color-rosa-oscuro);
+            margin: -4px 0 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .menu-tonos {
+            display: none;
+            background: var(--color-rosa-suave);
+            border-radius: var(--radio-md);
+            padding: 10px 8px;
+            margin-bottom: 10px;
+            animation: aparecer-tonos 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(207, 134, 131, 0.2);
+        }
+        
+        @keyframes aparecer-tonos {
+            from { opacity: 0; transform: translateY(-6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tonos-label { 
+            margin: 0 0 8px; 
+            font-size: 0.72em; 
+            color: var(--texto-oscuro); 
+            font-weight: 600; 
+        }
+
+        .circulos-tonos { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 6px; 
+            justify-content: center; 
+        }
+
+        .circulo-tono {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            cursor: pointer;
+            padding: 0;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .circulo-tono:hover {
+            transform: scale(1.15);
+        }
+
+        .circulo-tono.seleccionado {
+            box-shadow: 0 0 0 2px var(--color-rosa-oscuro);
+            transform: scale(1.2);
+        }
+
+        .tono-elegido { 
+            margin: 8px 0 0; 
+            font-size: 0.72em; 
+            color: var(--color-rosa-oscuro); 
+            font-weight: 500;
+            font-style: italic; 
+        }
+
+        button.btn-agregar {
+            background: linear-gradient(135deg, var(--color-rosa), var(--color-rosa-oscuro));
+            color: white;
+            border: none;
+            padding: 10px 14px;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 0.9em;
+            font-weight: 600;
+            font-family: inherit;
+            transition: var(--transicion);
+            box-shadow: 0 4px 12px rgba(207, 134, 131, 0.3);
+        }
+
+        button.btn-agregar:hover { 
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(181, 102, 99, 0.4);
+        }
+        
+        button.btn-agregar:active { 
+            transform: scale(0.97); 
+        }
+
+        /* ==========================================================
+           6. CARRITO FLOATING / MODAL
+           ========================================================== */
+        #carrito {
+            position: fixed;
+            bottom: 0; 
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 20px;
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.12);
+            border-radius: 24px 24px 0 0;
+            display: none;
+            z-index: 200;
+            border-top: 4px solid var(--color-oliva);
+            max-height: 80vh;
+            overflow-y: auto;
+            animation: deslizar-carrito 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes deslizar-carrito {
+            from { transform: translate(-50%, 100%); }
+            to { transform: translate(-50%, 0); }
+        }
+
+        #lista-carrito { 
+            list-style: none; 
+            padding: 0; 
+            margin: 0 0 15px 0; 
+            max-height: 220px; 
+            overflow-y: auto; 
+        }
+
+        .item-carrito {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            gap: 10px;
+        }
+
+        .item-info { flex: 2; text-align: left; }
+        .item-info strong { 
+            font-family: 'CoFo Raffine', 'Fraunces', Georgia, serif; 
+            font-size: 1.05em; 
+            color: var(--texto-oscuro);
+        }
+
+        .controles-cantidad { display: flex; align-items: center; gap: 8px; }
+        
+        .btn-control {
+            background-color: var(--color-rosa-suave);
+            border: none;
+            width: 28px; 
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--color-rosa-oscuro);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transicion);
+        }
+        
+        .btn-control:active { transform: scale(0.9); }
+
+        .btn-eliminar { 
+            background: transparent; 
+            border: none; 
+            cursor: pointer; 
+            font-size: 1.1em; 
+            margin-left: 4px;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+        
+        .btn-eliminar:hover { opacity: 1; }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 30px;
+            font-size: 1em;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: var(--transicion);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Responsive Breakpoints */
+        @media (min-width: 640px) {
+            .grid-categorias { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+            .productos { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+            .hero h1 { font-size: 3em; }
+     
+        }
+ /* ==========================================================
+   BANNER DE CONSULTA Y DISPONIBILIDAD
+   ========================================================== */
+.banner-consulta {
+    background-color: var(--color-rosa-suave);
+    border: 1px dashed var(--color-rosa-oscuro);
+    border-radius: var(--radio-md);
+    padding: 16px 20px;
+    margin: 30px auto 10px;
+    text-align: center;
+    color: var(--texto-oscuro);
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+.banner-consulta p {
+    margin: 0;
+}
+
+.banner-consulta a {
+    color: var(--color-verde);
+    font-weight: 700;
+    text-decoration: underline;
+    transition: var(--transicion);
+}
+
+.banner-consulta a:hover {
+    color: var(--color-rosa-oscuro);
+}
+    </style>
+</head>
+<body>
+
+    <!-- ============ BARRA SUPERIOR ============ -->
+    <header class="barra-superior">
+        <a href="#" onclick="volverInicio(); return false;" class="logo-link">
+            <img src='IMAGENES/logo.png' alt="Armonía Makeup" class="logo-marca">
+        </a>
+        <div class="botones-contacto">
+            <a class="btn-contacto ig" id="link-instagram" href="#" target="_blank" rel="noopener" aria-label="Instagram" title="Síguenos en Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8">
+                    <rect x="3" y="3" width="18" height="18" rx="5"/>
+                    <circle cx="12" cy="12" r="4.2"/>
+                    <circle cx="17.2" cy="6.8" r="0.9" fill="white" stroke="none"/>
+                </svg>
+            </a>
+            <a class="btn-contacto wsp" id="link-whatsapp-asesoria" href="#" target="_blank" rel="noopener" aria-label="WhatsApp" title="Escríbenos por WhatsApp">
+                <svg viewBox="0 0 24 24" fill="white">
+                    <path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.5-.8-2.1-1.5-.5-.6-.9-1.2-1-1.4-.1-.2 0-.4.1-.5l.4-.5c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.6-1.5c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 3.9 3.4.5.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/>
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <div class="contenido">
+
+        <!-- ============ VISTA: INICIO (6 categorías) ============ -->
+        <main id="vista-inicio">
+            <div class="hero">
+                <h1>Armonía Make-up</h1>
+                <p class="eslogan">Lo esencial eres tú</p>
+                <p class="subtitulo">Elige una categoría para ver nuestros productos</p>
+            </div>
+            <div class="grid-categorias" id="grid-categorias"><!-- generado por JS --></div>
+        </main>
+ <div class="banner-consulta">
+                <p>💬 ¿Necesitas algún producto o tono que no se encuentre en nuestro catálogo? <br>
+                <a href="https://wa.me/573143615049?text=%C2%A1Hola!%20%F0%9F%90%B5%20Quisiera%20consultar%20disponibilidad%20de%20un%20producto%20o%20tono%20espec%C3%ADfico." target="_blank" rel="noopener">Escríbenos por WhatsApp para consultar disponibilidad</a></p>
+            </div>
+        </main>
+        <!-- ============ VISTA: CATEGORÍA (productos filtrados) ============ -->
+        <main id="vista-categoria" style="display:none;">
+            <div class="barra-categoria">
+                <button class="btn-volver" onclick="volverInicio()">← Categorías</button>
+                <h2 id="titulo-categoria"></h2>
+            </div>
+            <div class="productos" id="grid-productos"><!-- generado por JS --></div>
+            <div class="banner-consulta">
+                <p>✨ ¿No encuentras el producto o tono que buscas en esta categoría? <br>
+                <a href="https://wa.me/573143615049?text=%C2%A1Hola!%20%F0%9F%90%B5%20Busco%20un%20producto/tono%20que%20no%20est%C3%A1%20en%20el%20cat%C3%A1logo." target="_blank" rel="noopener">Contáctanos directamente para consultar disponibilidad</a></p>
+            </div>
+        </main>
+
+    </div>
+
+    <!-- ============ CARRITO ============ -->
+    <div id="carrito">
+        <h2 style="margin-top: 0; margin-bottom: 12px; color: var(--color-verde); font-size: 1.4em;">Tu Pedido</h2>
+        <ul id="lista-carrito"></ul>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin: 15px 0 10px; border-top: 1px dashed rgba(0,0,0,0.1); padding-top: 10px;">
+            <span style="font-weight: 600; color: var(--texto-muted);">Total:</span>
+            <h2 style="margin: 0; color: var(--color-rosa-oscuro); font-size: 1.5em;">$<span id="total">0</span></h2>
+        </div>
+        <button class="btn-whatsapp" onclick="enviarWhatsApp()">Enviar pedido por WhatsApp 📲</button>
+    </div>
+
+    <script>
+        // ==========================================================
+        // 1. CONFIGURACIÓN GENERAL
+        // ==========================================================
+        const INSTAGRAM_URL = "https://www.instagram.com/armonia_makeup2026?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==";
+        const WHATSAPP_ASESORIA = "573143615049";
+        const MENSAJE_ASESORIA = "¡Hola! Quisiera una asesoría de maquillaje.";
+        const WHATSAPP_PEDIDOS = "573143615049";
+
+        document.getElementById('link-instagram').href = INSTAGRAM_URL;
+        document.getElementById('link-whatsapp-asesoria').href =
+            `https://wa.me/${WHATSAPP_ASESORIA}?text=${encodeURIComponent(MENSAJE_ASESORIA)}`;
+
+        // ==========================================================
+        // 2. CATEGORÍAS
+        // ==========================================================
+        const categorias = [
+            { id: 'labios',      nombre: 'Labios' },
+            { id: 'rostro',      nombre: 'Rostro' },
+            { id: 'ojos',        nombre: 'Ojos' },
+            { id: 'rubor',       nombre: 'Rubor' },
+            { id: 'skin',        nombre: 'Skincare' },
+            { id: 'accesorios',  nombre: 'Accesorios y Complementos' }
+        ];
+
+        // ==========================================================
+        // 3. PRODUCTOS
+        // ==========================================================
+        const productos = [
+            { nombre: 'Brillo Juicy Lips', subtitulo:'Montoc', descripcion:'40 g', precio: 28500, categoria: 'labios', imagen: 'imagenes/Labios/(M) Brillo Juicy Lips.jpg'},
+            { nombre: 'Tinta de Labios ', subtitulo:'Rubby Rose',descripcion:'2.4 g', precio: 19000, categoria: 'labios', imagen: 'imagenes/Labios/(R) Tinta de Labios.jpg'},
+            { nombre: 'Lip Gloss ', subtitulo:'Ani-k',descripcion:'3.2 g', precio: 22000, categoria: 'labios', imagen: 'imagenes/Labios/(A) Lip Gloss Anik.jpg'},
+            { nombre: 'Lip oil', subtitulo:'Atenea', descripcion:'5 ml', precio: 30000, categoria: 'labios', imagen: 'IMAGENES/Labios/(Atenea) Lip oil.jpg.jpeg',
+              tonos: [
+                  { nombre: 'Tono 1 - Soft Red',  color: '#e50000' },
+                  { nombre: 'Tono 2 - Candy Pink',   color: '#f8a1b3' },
+                  { nombre: 'Tono 3 - Sugar Kiss',  color: '#eb82d2' },
+                  { nombre: 'Tono 4 - Deepplum',  color: '#6b4133' },
+                  { nombre: 'Tono 5 - Cherrybliss',  color: '#d94e40' },
+                  { nombre: 'Tono 6 - Candyglaze',  color: '#eb9bb0' },
+                  { nombre: 'Tono 7 - Cherryglaze',  color: '#b83742' }
+              ]
+            },
+            { nombre: 'Labial en barra ', subtitulo:'3Q Beauty', precio: 9000, categoria: 'labios', imagen: 'IMAGENES/Labios/(3Q beauty) labial mate.jpg.jpeg'},
+            { nombre: 'Lip Balm con péptidos', subtitulo:'Elaya', descripcion:'15ml', precio: 17000, categoria: 'labios', imagen: 'imagenes/Labios/(E) Lip balm con Peptidos.jpg',
+                 tonos: [
+                  { nombre: 'Tono 1 - Tamarindo',  color: '#6b4133' },
+                  { nombre: 'Tono 2 - Ciruela',   color: '#8c4356' },
+                  { nombre: 'Tono 3 - Almendra',  color: '#af5961' },
+                  { nombre: 'Tono 4 - Dragón Rosa',  color: '#d26e6c' },
+              ]
+           },
+           { nombre: 'Gloss mimosa', subtitulo:'Bloomshell',descripcion:'3.3 g', precio: 20000, categoria: 'labios', imagen: 'IMAGENES/Labios/(Bloomshell)Gloss mimosa.jpg.jpeg'},
+           { nombre: 'Tinta de labios', subtitulo:'Girly',descripcion:'10 ml', precio: 20000, categoria: 'labios', imagen: 'imagenes/Labios/(G) Tinta de labios Girly.jpeg'},
+           { nombre: 'Llavero + Gloss + Tinta', subtitulo:'Engol', precio: 22900, categoria: 'labios', imagen: 'IMAGENES/Labios/(Engol)Llavero con gloss.jpg.jpeg'},
+           { nombre: 'Brillo collections', subtitulo:'Engol', precio: 9900, categoria: 'labios', imagen: 'imagenes/Labios/(Engol)Brillo.jpg'},
+           { nombre: 'Brillo Gloss', subtitulo:'Elaya',descripcion:'5 ml', precio: 13900, categoria: 'labios', imagen: 'imagenes/Labios/(Elaya)Brillo gloss.jpg'},
+          
+           { nombre: 'Rubor Mousse',subtitulo:'Elaya',descripcion:'3.4 g', precio: 18700, categoria: 'rubor',     imagen: 'IMAGENES/Rubores/(Elaya) Rubor mousse.jpg.jpeg', 
+              tonos: [
+                  { nombre: 'Tono 1 - Gérbera',  color: '#F38D73' },
+                  { nombre: 'Tono 2 - Fresia',   color: '#D86B7E' },
+                  { nombre: 'Tono 3 - Lirio',  color: '#B3525D' },
+                  { nombre: 'Tono 4 - Tulipán',  color: '#884852' },
+                  ] 
+                 },
+          { nombre: 'Rubor Tinta Jalea',subtitulo:'Elaya',descripcion:'6 g', precio: 15000, categoria: 'rubor',     imagen: 'IMAGENES/Rubores/(Elaya)Rubor tinta jalea.jpg.jpeg' ,
+            tonos: [
+                  { nombre: 'Tono 1 - Coral',  color: '#AC0011' },
+                  { nombre: 'Tono 2 - Cereza',   color: '#860007' },
+                  { nombre: 'Tono 3 - Arándano',  color: '#600006' },
+                  { nombre: 'Tono 4 - Fresa',  color: '#920011' },
+                  ] 
+                 },
+          { nombre: 'Rubor Allure',subtitulo:'Atenea',descripcion:'9 g',precio: 46500, categoria: 'rubor',      imagen: 'IMAGENES/Rubores/(Atenea) Rubor allure.jpg.jpeg' ,
+              tonos: [
+                  { nombre: 'Tono 1 - Pink Crush',  color: '#ED87A5' },
+                  { nombre: 'Tono 2 - Orangeweek',   color: '#ED604B' },
+                  { nombre: 'Tono 3 - Nighcherry',  color: '#A9302B' },
+                  ] 
+                 },
+           { nombre: 'Rubor Dúo MP3',subtitulo:'Engol',precio: 22000, categoria: 'rubor',imagen: 'IMAGENES/Rubores/(Engol) Mp3 Rubor.jpg.jpeg' ,
+              tonos: [
+                  { nombre: 'Tono 1 - Rosa Pastel',  color: '#f48fb1' },
+                  { nombre: 'Tono 2 - Magenta',   color: '#e91e63' },
+                  { nombre: 'Tono 3 - Coral Calido',  color: '#f06292' },
+                  { nombre: 'Tono 4 - Rojo Terracota',  color: '#e57373' },
+                  ] 
+                 },
+            { nombre: 'Rubor Velvet X3',subtitulo:'Bloomshell',precio: 37000, categoria: 'rubor',imagen: 'imagenes/Mejillas/(B) rubor en crema.jpg' },
+           
+            { nombre: 'Base Liquida Tinta',subtitulo:'Atenea', descripcion:'30 ml', precio: 60000, categoria: 'rostro',imagen: 'IMAGENES/Bases y prebases/(Atenea) Base tinta.jpg.jpeg',
+               tonos: [
+                  { nombre: 'Tono 1 - Vainilla',  color: '#eeb48c' },
+                  { nombre: 'Tono 2 - Almond',   color: '#e6a885' },
+                  { nombre: 'Tono 3 - Olive',  color: '#df9f84' },
+                  ] 
+                 },
+            { nombre: 'Base Tinta Fluida',subtitulo:'Elaya', descripcion:'30 ml', precio: 25500, categoria: 'rostro',imagen: 'IMAGENES/Bases y prebases/(Elaya) Base fluida.jpg.jpeg'  },
+            { nombre: 'Base Corrector 2 en 1',subtitulo:'Ani-K', descripcion:'28 ml', precio: 42500, categoria: 'rostro',imagen: 'IMAGENES/Bases y prebases/(Anik) Base y corrector.jpg.jpeg',
+               tonos: [
+                  { nombre: 'Tono 1 - Taylor',  color: '#f8c8a9' },
+                  { nombre: 'Tono 2 - Dua',   color: '#efb284' },
+                  { nombre: 'Tono 3 - Selena',  color: '#d98652' },
+                  ] 
+                 },  
+            { nombre: 'Prebase Hidratante',subtitulo:'Elaya', descripcion:'35 ml', precio: 28900, categoria: 'rostro',imagen: 'IMAGENES/Bases y prebases/(Elaya) Prebase.jpg.jpeg'},     
+            { nombre: 'Matificante',subtitulo:'Elaya', descripcion:'8 g', precio: 29900, categoria: 'rostro',imagen: 'IMAGENES/Bases y prebases/(Elaya) Matificante.jpg.jpeg'},
+
+           { nombre: 'Corrector Humide',subtitulo:'Montoc', descripcion:'4.1 g', precio: 35000, categoria: 'ojos',imagen: 'IMAGENES/Contornos y correctores/(Montoc)Corrector.jpg.jpeg',
+               tonos: [
+                  { nombre: 'Tono 1 - 300',  color: '#f7c7a8' },
+                  { nombre: 'Tono 2 - 400',   color: '#fbbf8f' },
+                  { nombre: 'Tono 3 - 500',  color: '#f8b983' },
+                  ]
+                  },   
+           { nombre: 'Corrector de ojeras',subtitulo:'Ani-K', descripcion:'4.3 ml', precio: 22000, categoria: 'ojos',imagen: 'imagenes/Ojos y cejas/(An) corrector anik.jpg',
+               tonos: [
+                  { nombre: 'Tono 1 - Honey',  color: '#ead2c0' },
+                  ]
+                  },   
+           { nombre: 'Corrector Liquido 1st Scene',subtitulo:'Atenea', descripcion:'10 ml', precio: 45000, categoria: 'ojos',imagen: 'imagenes/Ojos y cejas/(A) corrector 1st scene atenea.jpg',
+               tonos: [
+                  { nombre: 'Tono 1 - Beige',  color: '#fbece4' },
+                  { nombre: 'Tono 2 - Cinnamon',   color: '#fbe3d4' },
+                  { nombre: 'Tono 3 - Maple',  color: '#e3904e' },
+                  ]
+                  },   
+            { nombre: 'Sombras Cartera de Estaciones',subtitulo:'Engol',descripcion:'Summer', precio: 27000, categoria: 'ojos',imagen: 'IMAGENES/Ojos/(Engol) Sombras cartera.jpg.jpeg'},
+            { nombre: 'Sombras Liquida Brillante',subtitulo:'Elaya',descripcion:'5 g', precio: 13500, categoria: 'ojos',imagen: 'IMAGENES/Ojos/(Elaya) Sombra liquida.jpg.jpeg',      
+                tonos: [
+                  { nombre: 'Tono 1 - Silver',  color: '#e5e4e2' },
+                  { nombre: 'Tono 2 - Gold',   color: '#e6be8a' },
+                  { nombre: 'Tono 3 - Copper',  color: '#e19f65' },
+                  ]
+                  },  
+            { nombre: 'Sombras Cremosa en Barra',subtitulo:'Atenea',descripcion:'1.6 g', precio: 22000, categoria: 'ojos',imagen: 'IMAGENES/Ojos/(Atenea)Sombras en barra.jpg.jpeg',
+               tonos: [
+                  { nombre: 'Tono 1 - Muse',  color: '#e6b5aa' },
+                  { nombre: 'Tono 2 - Honey',   color: '#e59f67' },
+                  { nombre: 'Tono 3 - Truffle',  color: '#d97753' },
+                  { nombre: 'Tono 3 - Coffee',  color: '#5c362a' },
+                  ]
+                  },  
+            { nombre: 'Pestañina',subtitulo:'Prosa',descripcion:'13 g', precio: 20500, categoria: 'ojos',imagen: 'IMAGENES/Ojos/(Prosa) pestañina.jpg.jpeg'},
+            { nombre: 'Gel de Cejas Melu',subtitulo:'Ruby Rose',descripcion:'8.3 ml', precio: 20000, categoria: 'ojos',imagen: 'IMAGENES/Cejas/(Ruby rose) gel melu.jpg.jpeg'},
+            { nombre: 'Gel de Cejas Collections',subtitulo:'Engol', precio: 13500, categoria: 'ojos',imagen: 'IMAGENES/Cejas/(Engol) gel de cejas.jpg.jpeg'},
+            { nombre: 'Gel de Cejas Brow Wax Ultra',subtitulo:'Montoc',descripcion:'8.3 g', precio: 26900, categoria: 'ojos',imagen: 'IMAGENES/Cejas/Gel cejas Montoc.jpg'},
+        
+
+            { nombre: 'Contorno de Ojos Arroz',subtitulo:'Bioaqua',descripcion:'20 g', precio: 12900, categoria: 'skin',imagen: 'IMAGENES/Contornos y correctores/(Bioaqua) Contorno de arroz.jpg.jpeg'},
+            { nombre: 'Contorno de Ojos Acido Hialuronico',subtitulo:'Bioaqua',descripcion:'20 g', precio: 12900, categoria: 'skin',imagen: 'IMAGENES/Contornos y correctores/(Bioaqua) Contorno de acido hialuronico.jpg.jpeg'},
+            { nombre: 'Contorno de Ojos VE + B5',subtitulo:'Bioaqua', precio: 12900, categoria: 'skin',imagen: 'IMAGENES/Contornos y correctores/VE+B5.jpg'},
+            { nombre: 'Mascarilla de Ácido Hialurónico y Rosas',subtitulo:'Bioaqua', precio: 4900, categoria: 'skin',imagen: 'IMAGENES/Mascarillas/(Bioaqua)Acido hialuronico.jpg'},
+            { nombre: 'Mascarilla Centella Asiatica',subtitulo:'Bioaqua', precio: 4900, categoria: 'skin',imagen: 'IMAGENES/Mascarillas/(Bioaqua)Centella asiatica.jpg'},
+            { nombre: 'Mascarilla Vitamina C',subtitulo:'Bioaqua', precio: 4900, categoria: 'skin',imagen: 'IMAGENES/Mascarillas/(Bioaqua)Vitamina C.jpg'},
+            { nombre: 'Mascarilla Retinol',subtitulo:'Bioaqua', precio: 4900, categoria: 'skin',imagen: 'IMAGENES/Mascarillas/(Bioaqua)Retinol.jpg'},
+            { nombre: 'Kit Arroz Grande',subtitulo:'Bioaqua', precio: 69900, categoria: 'skin',imagen: 'IMAGENES/Kits/(Bioaqua)Kit arroz.jpg'},
+            { nombre: 'Kit Rosas y Ácido Hialurónico',subtitulo:'Bioaqua', precio: 69900, categoria: 'skin',imagen: 'IMAGENES/Kits/(Bioaqua)Kit rosas.jpg'},
+            { nombre: 'Kit Vitamina C',subtitulo:'Bioaqua', precio: 69900, categoria: 'skin',imagen: 'IMAGENES/Kits/(Bioaqua)Kit vitamina C.jpg'},
+            { nombre: 'Bloqueador Solar con Color',subtitulo:'Nude', precio: 5900, categoria: 'skin',imagen: 'IMAGENES/Otros/(Nude)Bloqueador.jpg.jpeg'},
+            { nombre: 'Desmaquillante Bifásico Milky Rose',subtitulo:'Montoc',descripcion:'160 ml', precio: 28900, categoria: 'skin',imagen: 'IMAGENES/Otros/(Montoc) Desmaquillante milky.jpg.jpeg'},
+
+
+            { nombre: 'Espuma Desmaquillante Bifásico con Cepillo',subtitulo:'Elaya',descripcion:'150 ml', precio: 19900, categoria: 'accesorios',imagen: 'IMAGENES/Otros/(Elaya) Espuma limpiadora bifasica.jpg.jpeg'},
+            { nombre: 'Crema Hidratante de Arroz',subtitulo:'Bioaqua',descripcion:'50 g', precio: 19900, categoria: 'accesorios',imagen: 'IMAGENES/Otros/(Bioaqua) Crema de arroz.jpg.jpeg'},
+            { nombre: 'Shimmer Corporal',subtitulo:'Elaya',descripcion:'120 g', precio: 26000, categoria: 'accesorios',imagen: 'IMAGENES/Otros/(Elaya) Shimmer corporal.jpg.jpeg'},
+            { nombre: 'Agua de Rosas',subtitulo:'Miracle',descripcion:'250 ml', precio: 10500, categoria: 'accesorios',imagen: 'IMAGENES/Otros/(Miracle) Agua de rosas.jpg.jpeg'},
+            { nombre: 'Fijador de Maquillaje',subtitulo:'Montoc',descripcion:'30 ml', precio: 22500, categoria: 'accesorios',imagen: 'IMAGENES/Otros/(Montoc) Fijador dixi fix.jpg.jpeg'},
+            { nombre: 'Beauty Blender',subtitulo:'MyK', precio: 5500, categoria: 'accesorios',imagen: 'IMAGENES/Otros/BeautyBlender MyK.png'},
+
+            
+        ];
+            
+            
+
+
+
+        // ==========================================================
+        // 4. RENDER DE CATEGORÍAS
+        // ==========================================================
+        const INTERVALO_CARRUSEL = 2600;
+
+        function crearGridCategorias() {
+            const grid = document.getElementById('grid-categorias');
+            grid.innerHTML = '';
+
+            categorias.forEach(cat => {
+                const imagenesCat = productos.filter(p => p.categoria === cat.id).map(p => p.imagen);
+
+                const tile = document.createElement('div');
+                tile.className = 'tile-categoria';
+                tile.onclick = () => mostrarCategoria(cat.id);
+
+                if (imagenesCat.length === 0) {
+                    tile.innerHTML = `<div class="tile-vacia"><span class="icono-vacio">✨</span>${cat.nombre}<span class="etiqueta-pronto">Próximamente</span></div>`;
+                    tile.setAttribute('tabindex', '0');
+                    grid.appendChild(tile);
+                    return;
+                }
+
+                const imgsHTML = imagenesCat.map((src, i) =>
+                    `<img class="tile-img ${i === 0 ? 'activa' : ''}" src="${src}" alt="${cat.nombre}">`
+                ).join('');
+
+                const puntosHTML = imagenesCat.length > 1
+                    ? `<div class="tile-contador">${imagenesCat.map((_, i) => `<span class="tile-punto ${i === 0 ? 'activo' : ''}"></span>`).join('')}</div>`
+                    : '';
+
+                tile.innerHTML = `
+                    <div class="tile-fondos">${imgsHTML}</div>
+                    <div class="tile-overlay"></div>
+                    ${puntosHTML}
+                    <div class="tile-nombre"><span>${cat.nombre}</span><span class="flecha">→</span></div>
+                `;
+                tile.setAttribute('tabindex', '0');
+                tile.setAttribute('role', 'button');
+                tile.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); mostrarCategoria(cat.id); }
+                });
+                grid.appendChild(tile);
+
+                if (imagenesCat.length > 1) {
+                    let indice = 0;
+                    setInterval(() => {
+                        const imgs = tile.querySelectorAll('.tile-img');
+                        const puntos = tile.querySelectorAll('.tile-punto');
+                        if (imgs.length === 0) return;
+                        imgs[indice].classList.remove('activa');
+                        puntos[indice].classList.remove('activo');
+                        indice = (indice + 1) % imgs.length;
+                        imgs[indice].classList.add('activa');
+                        puntos[indice].classList.add('activo');
+                    }, INTERVALO_CARRUSEL);
+                }
+            });
+        }
+
+        // ==========================================================
+        // 5. NAVEGACIÓN ENTRE VISTAS
+        // ==========================================================
+        function mostrarCategoria(catId) {
+            const cat = categorias.find(c => c.id === catId);
+            document.getElementById('vista-inicio').style.display = 'none';
+            document.getElementById('vista-categoria').style.display = 'block';
+            document.getElementById('titulo-categoria').innerText = cat.nombre;
+            renderProductos(catId);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function volverInicio() {
+            document.getElementById('vista-categoria').style.display = 'none';
+            document.getElementById('vista-inicio').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderProductos(catId) {
+            const grid = document.getElementById('grid-productos');
+            const items = productos.filter(p => p.categoria === catId);
+
+            const msgVacio = document.getElementById('msg-vacio');
+            if (msgVacio) msgVacio.remove();
+
+            if (items.length === 0) {
+                grid.innerHTML = '';
+                grid.insertAdjacentHTML('afterend', `<p class="mensaje-vacio" id="msg-vacio">Todavía no hay productos en esta categoría. ¡Vuelve pronto! 💕</p>`);
+                return;
+            }
+
+            grid.innerHTML = items.map(p => {
+                const idx = productos.indexOf(p);
+                const tieneTonos = p.tonos && p.tonos.length > 0;
+
+                const menuTonosHTML = tieneTonos ? `
+                    <div class="menu-tonos" id="tonos-${idx}">
+                        <p class="tonos-label">Selecciona tu tono:</p>
+                        <div class="circulos-tonos">
+                            ${p.tonos.map((t, ti) => `
+                                <button type="button" class="circulo-tono ${ti === 0 ? 'seleccionado' : ''}"
+                                    style="background-color:${t.color}" title="${t.nombre}"
+                                    onclick="seleccionarTono(event, ${idx}, ${ti})"></button>
+                            `).join('')}
+                        </div>
+                        <p class="tono-elegido" id="tono-elegido-${idx}">${p.tonos[0].nombre}</p>
+                    </div>
+                ` : '';
+
+                const detalle = [p.subtitulo, p.descripcion].filter(Boolean).join(' · ');
+
+                return `
+                    <div class="tarjeta">
+                        <div class="tarjeta-click-area" ${tieneTonos ? `onclick="toggleTonos(${idx})"` : ''}>
+                            <div class="tarjeta-img-wrapper">
+                                <img src="${p.imagen}" alt="${p.nombre}" loading="lazy">
+                            </div>
+                            <h3>${p.nombre}</h3>
+                            ${detalle ? `<p class="detalle-prod">${detalle}</p>` : ''}
+                            <p class="precio">$${p.precio.toLocaleString('es-CO')}</p>
+                            ${tieneTonos ? `<p class="hint-tonos">✨ Toca para ver tonos</p>` : ''}
+                        </div>
+                        ${menuTonosHTML}
+                        <button class="btn-agregar" onclick="agregarConTono(event, ${idx})">Añadir al carrito</button>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // ==========================================================
+        // 5b. MENÚ DE TONOS
+        // ==========================================================
+        const tonoSeleccionado = {};
+
+        function toggleTonos(idx) {
+            const menu = document.getElementById(`tonos-${idx}`);
+            if (!menu) return;
+            const estaAbierto = menu.style.display === 'block';
+            document.querySelectorAll('.menu-tonos').forEach(m => m.style.display = 'none');
+            menu.style.display = estaAbierto ? 'none' : 'block';
+        }
+
+        function seleccionarTono(event, idx, tonoIdx) {
+            event.stopPropagation();
+            tonoSeleccionado[idx] = tonoIdx;
+            const producto = productos[idx];
+            document.getElementById(`tono-elegido-${idx}`).innerText = producto.tonos[tonoIdx].nombre;
+            document.querySelectorAll(`#tonos-${idx} .circulo-tono`).forEach((circulo, i) => {
+                circulo.classList.toggle('seleccionado', i === tonoIdx);
+            });
+        }
+
+        function agregarConTono(event, idx) {
+            event.stopPropagation();
+            const producto = productos[idx];
+            let nombreFinal = producto.nombre;
+            if (producto.tonos && producto.tonos.length > 0) {
+                const ti = tonoSeleccionado[idx] ?? 0;
+                nombreFinal = `${producto.nombre} - ${producto.tonos[ti].nombre}`;
+            }
+            addToCart(nombreFinal, producto.precio);
+        }
+
+        // ==========================================================
+        // 6. CARRITO DE COMPRAS
+        // ==========================================================
+        let carrito = [];
+
+        function addToCart(nombre, precio) {
+            let producto = carrito.find(item => item.nombre === nombre);
+            if (producto) {
+                producto.cantidad++;
+            } else {
+                carrito.push({ nombre: nombre, precio: precio, cantidad: 1 });
+            }
+            actualizarCarrito();
+        }
+
+        function sumar(nombre) {
+            let producto = carrito.find(item => item.nombre === nombre);
+            if (producto) {
+                producto.cantidad++;
+                actualizarCarrito();
+            }
+        }
+
+        function restar(nombre) {
+            let producto = carrito.find(item => item.nombre === nombre);
+            if (producto) {
+                if (producto.cantidad > 1) {
+                    producto.cantidad--;
+                } else {
+                    eliminar(nombre);
+                    return;
+                }
+                actualizarCarrito();
+            }
+        }
+
+        function eliminar(nombre) {
+            carrito = carrito.filter(item => item.nombre !== nombre);
+            actualizarCarrito();
+        }
+
+        function actualizarCarrito() {
+            const contenedorCarrito = document.getElementById('carrito');
+            const lista = document.getElementById('lista-carrito');
+            const totalElemento = document.getElementById('total');
+
+            lista.innerHTML = '';
+            let total = 0;
+
+            if (carrito.length === 0) {
+                contenedorCarrito.style.display = 'none';
+                return;
+            }
+
+            contenedorCarrito.style.display = 'block';
+
+            carrito.forEach((item) => {
+                let subtotal = item.precio * item.cantidad;
+                total += subtotal;
+
+                lista.innerHTML += `
+                    <li class="item-carrito">
+                        <div class="item-info">
+                            <strong>${item.nombre}</strong><br>
+                            <span style="color: var(--texto-muted); font-size: 0.85em;">$${item.precio.toLocaleString('es-CO')} c/u</span>
+                        </div>
+                        <div class="controles-cantidad">
+                            <button class="btn-control" onclick="restar('${item.nombre}')">-</button>
+                            <span style="font-weight:600; font-size: 0.9em; min-width: 16px; text-align:center;">${item.cantidad}</span>
+                            <button class="btn-control" onclick="sumar('${item.nombre}')">+</button>
+                            <button class="btn-eliminar" onclick="eliminar('${item.nombre}')" title="Eliminar">🗑️</button>
+                        </div>
+                    </li>
+                `;
+            });
+
+            totalElemento.innerText = total.toLocaleString('es-CO');
+        }
+
+        function enviarWhatsApp() {
+            if (carrito.length === 0) return;
+
+            let mensaje = "¡Hola! Quiero realizar el siguiente pedido:\n\n";
+            let totalPedido = 0;
+
+            carrito.forEach(item => {
+                let subtotal = item.precio * item.cantidad;
+                totalPedido += subtotal;
+                mensaje += `▪️ ${item.cantidad}x ${item.nombre} ($${subtotal.toLocaleString('es-CO')})\n`;
+            });
+
+            mensaje += `\n*Total a pagar: $${totalPedido.toLocaleString('es-CO')}*`;
+
+            let textoCodificado = encodeURIComponent(mensaje);
+            let url = `https://wa.me/${WHATSAPP_PEDIDOS}?text=${textoCodificado}`;
+            window.open(url, '_blank');
+        }
+
+        // ==========================================================
+        // 7. INICIALIZAR PÁGINA
+        // ==========================================================
+        crearGridCategorias();
+    </script>
+</body>
+</html>
