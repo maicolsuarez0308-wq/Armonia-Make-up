@@ -795,7 +795,10 @@
         const categorias = [
             { id: 'labios',      nombre: 'Labios' },
             { id: 'rostro',      nombre: 'Rostro' },
-            { id: 'ojos',        nombre: 'Ojos' },
+            { id: 'ojos',        nombre: 'Sombras' },
+            { id: 'cejas',        nombre: 'Cejas' },
+            { id: 'pesta',        nombre: 'Pestañinas' },
+            { id: 'correctores',  nombre: 'Correctores' },
             { id: 'rubor',       nombre: 'Rubores & Iluminadores' },
             { id: 'skin',        nombre: 'Skincare' },
             { id: 'accesorios',  nombre: 'Accesorios y Complementos' }
@@ -891,25 +894,33 @@
             { nombre: 'Prebase Hidratante',subtitulo:'Elaya', descripcion:'35 ml', precio: 22900, categoria: 'rostro',imagen: 'IMAGENES/Bases y prebases/(Elaya) Prebase.jpg.jpeg'},     
             { nombre: 'Matificante',subtitulo:'Elaya', descripcion:'8 g', precio: 29900, categoria: 'rostro',imagen: 'IMAGENES/Bases y prebases/(Elaya) Matificante.jpg.jpeg'},
 
-           { nombre: 'Corrector Humide',subtitulo:'Montoc', descripcion:'4.1 g', precio: 35000, categoria: 'ojos',imagen: 'IMAGENES/Contornos y correctores/(Montoc)Corrector.jpg.jpeg',
+           { nombre: 'Corrector Humide',subtitulo:'Montoc', descripcion:'4.1 g', precio: 35000, categoria: 'correctores',imagen: 'IMAGENES/Contornos y correctores/(Montoc)Corrector.jpg.jpeg',
                tonos: [
                   { nombre: 'Tono 1 - 300',  color: '#f7c7a8' },
                   { nombre: 'Tono 2 - 400',   color: '#fbbf8f' },
                   { nombre: 'Tono 3 - 500',  color: '#f8b983' },
                   ]
                   },   
-           { nombre: 'Corrector de ojeras',subtitulo:'Ani-K', descripcion:'4.3 ml', precio: 22000, categoria: 'ojos',imagen: 'imagenes/Ojos y cejas/(An) corrector anik.jpg',
+           { nombre: 'Corrector de ojeras',subtitulo:'Ani-K', descripcion:'4.3 ml', precio: 22000, categoria: 'correctores',imagen: 'imagenes/Ojos y cejas/(An) corrector anik.jpg',
                tonos: [
                   { nombre: 'Tono 1 - Honey',  color: '#ead2c0' },
                   ]
                   },   
-           { nombre: 'Corrector Liquido 1st Scene',subtitulo:'Atenea', descripcion:'10 ml', precio: 45000, categoria: 'ojos',imagen: 'imagenes/Ojos y cejas/(A) corrector 1st scene atenea.jpg',
+           { nombre: 'Corrector Liquido 1st Scene',subtitulo:'Atenea', descripcion:'10 ml', precio: 45000, categoria: 'correctores',imagen: 'imagenes/Ojos y cejas/(A) corrector 1st scene atenea.jpg',
                tonos: [
                   { nombre: 'Tono 1 - Beige',  color: '#fbece4' },
                   { nombre: 'Tono 2 - Cinnamon',   color: '#fbe3d4' },
                   { nombre: 'Tono 3 - Maple',  color: '#e3904e' },
                   ]
                   },   
+          { nombre: 'Corrector My Concealer',subtitulo:'Bloomshell', descripcion:'10 ml', precio: 21900, categoria: 'correctores',imagen: 'IMAGENES/Ojos/(Bloomshell) corrector my concealer.jpg',
+               tonos: [
+                  { nombre: 'Tono 2 - Beige ',  color: '#e9b480' },
+                  { nombre: 'Tono 3 - Vanilla',   color: '#e1a66d' },
+                  ]
+                  },   
+
+            
             { nombre: 'Sombras Cartera de Estaciones',subtitulo:'Engol',descripcion:'Summer', precio: 20000, categoria: 'ojos',imagen: 'IMAGENES/Ojos/(Engol) Sombras cartera.jpg.jpeg'},
             { nombre: 'Sombras Liquida Brillante',subtitulo:'Elaya',descripcion:'5 g', precio: 13500, categoria: 'ojos',imagen: 'IMAGENES/Ojos/(Elaya) Sombra liquida.jpg.jpeg',      
                 tonos: [
@@ -926,11 +937,14 @@
                   { nombre: 'Tono 3 - Coffee',  color: '#5c362a' },
                   ]
                   },  
-            { nombre: 'Pestañina',subtitulo:'Prosa',descripcion:'13 g', precio: 20000, categoria: 'ojos',imagen: 'IMAGENES/Ojos/(Prosa) pestañina.jpg.jpeg'},
-            { nombre: 'Gel de Cejas Melu',subtitulo:'Ruby Rose',descripcion:'8.3 ml', precio: 20000, categoria: 'ojos',imagen: 'IMAGENES/Cejas/(Ruby rose) gel melu.jpg.jpeg'},
-            { nombre: 'Gel de Cejas Collections',subtitulo:'Engol', precio: 13500, categoria: 'ojos',imagen: 'IMAGENES/Cejas/(Engol) gel de cejas.jpg.jpeg'},
-            { nombre: 'Gel de Cejas Brow Wax Ultra',subtitulo:'Montoc',descripcion:'8.3 g', precio: 26900, categoria: 'ojos',imagen: 'IMAGENES/Cejas/Gel cejas Montoc.jpg'},
-        
+            { nombre: 'Pestañina',subtitulo:'Prosa',descripcion:'13 g', precio: 20000, categoria: 'pesta',imagen: 'IMAGENES/Ojos/(Prosa) pestañina.jpg.jpeg'},
+            { nombre: 'Pestañina Brown Paradise Waterproof',subtitulo:'Ani-k',descripcion:'12 g', precio: 21900, categoria: 'pesta',imagen: 'IMAGENES/Ojos/(Anik) Brown paradise waterproof pestañina.jpg'},
+            { nombre: 'Pestañina Eternal Lash',subtitulo:'Ani-k',descripcion:'10 g', precio: 21900, categoria: 'pesta',imagen: 'IMAGENES/Ojos/(Anik) Eternal lash pestañina.jpg'},
+            
+            { nombre: 'Gel de Cejas Melu',subtitulo:'Ruby Rose',descripcion:'8.3 ml', precio: 20000, categoria: 'cejas',imagen: 'IMAGENES/Cejas/(Ruby rose) gel melu.jpg.jpeg'},
+            { nombre: 'Gel de Cejas Collections',subtitulo:'Engol', precio: 13500, categoria: 'cejas',imagen: 'IMAGENES/Cejas/(Engol) gel de cejas.jpg.jpeg'},
+            { nombre: 'Gel de Cejas Brow Wax Ultra',subtitulo:'Montoc',descripcion:'8.3 g', precio: 26900, categoria: 'cejas',imagen: 'IMAGENES/Cejas/Gel cejas Montoc.jpg'}, 
+            { nombre: 'Gel de Cejas Freeze Babes',subtitulo:'Ani-k',descripcion:'4.8 g', precio: 21000, categoria: 'cejas',imagen: 'IMAGENES/Cejas/(Anik) Freeze babes fijador de cejas.jpg'},
 
             { nombre: 'Contorno de Ojos Arroz',subtitulo:'Bioaqua',descripcion:'20 g', precio: 12900, categoria: 'skin',imagen: 'IMAGENES/Contornos y correctores/(Bioaqua) Contorno de arroz.jpg.jpeg'},
             { nombre: 'Contorno de Ojos Acido Hialuronico',subtitulo:'Bioaqua',descripcion:'20 g', precio: 12900, categoria: 'skin',imagen: 'IMAGENES/Contornos y correctores/(Bioaqua) Contorno de acido hialuronico.jpg.jpeg'},
